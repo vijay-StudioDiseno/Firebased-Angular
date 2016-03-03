@@ -1,0 +1,80 @@
+
+<div class="container">
+
+
+	<div class="alert alert-success alert-dismissible" role="alert" ng-show="userAdded">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<strong>{{ addeduser }}</strong> User added successfully...
+	</div>
+	
+	<div class="alert alert-danger alert-dismissible" role="alert" ng-show="userDeleted">
+  	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  	<strong>{{ deleteduser }}</strong> deleted successfully...
+	</div>
+	
+	<form ng-submit="addUser()">
+		<h4>Add User</h4>
+		<hr>
+		<div class="form-group">
+			<label class="control-label">First Name:</label>
+			<input type="text" class="form-control" ng-model="firstname" required>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label">Last Name:</label>
+			<input type="text" class="form-control" ng-model="lastname" required>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label">Email:</label>
+			<input type="text" class="form-control" ng-model="email" required>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label">Telephone:</label>
+			<input type="text" class="form-control" ng-model="telephone" required>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label">City:</label>
+			<input type="text" class="form-control" ng-model="city" required>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label">Country:</label>
+			<input type="text" class="form-control" ng-model="country" required>
+		</div>
+		
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+		
+	</form>
+	<hr>
+	<h4>Users List</h4>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Telephone</th>
+				<th>City</th>
+				<th>Country</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in users">
+				<td>{{ user.firstname }}</td>
+				<td>{{ user.lastname }}</td>
+				<td>{{ user.email }}</td>
+				<td>{{ user.telephone }}</td>
+				<td>{{ user.city }}</td>
+				<td>{{ user.country }}</td>
+				<td><button type="button" class="btn btn-danger" ng-click="deleteUser(user)">Delete</button></td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
